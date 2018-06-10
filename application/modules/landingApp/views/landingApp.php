@@ -36,7 +36,7 @@
 			</div>
 			<div class="right-bar">
 				<div>
-					<a href="<?php echo base_url();?>" class="sign button">Sign Up</a>
+					<a href="<?php echo base_url();?>index.php/signUp" class="sign button">Sign Up</a>
 				</div>
 			</div>
 			<div id="pt-main" class="pt-perspective ">

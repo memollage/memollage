@@ -52,6 +52,14 @@
 						<span class="focus-input100" data-placeholder="Email"></span>
 					</div>
 
+					<div class="wrap-input100 validate-input" data-validate="Enter Your Name">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="text" name="name">
+						<span class="focus-input100" data-placeholder="Name"></span>
+					</div>
+
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
@@ -64,18 +72,18 @@
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
 							<button class="login100-form-btn" name="submit">
-								Login
+								Sign Up
 							</button>
 						</div>
 					</div>
 
-					<div class="text-center p-t-115">
+					<div class="text-center p-t-15">
 						<span class="txt1">
-							Don’t have an account?
+							Do you have an account?
 						</span>
 
-						<a class="txt2" href="signup.html">
-							Sign Up
+						<a class="txt2" href="<?php echo base_url();?>index.php/signIn">
+							Sign In
 						</a>
 					</div>
 				</form>

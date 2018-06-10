@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |	$route['404_override'] = 'errors/page_missing';
 |
 | This route will tell the Router which controller/method to use if those
-| provided in the URL cannot be matched to a valid route.
+| provided in2 the URL cannot be matched to a valid route.
 |
 |	$route['translate_uri_dashes'] = FALSE;
 |
@@ -49,6 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'beranda';
+$route['default_controller'] = 'landingApp';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

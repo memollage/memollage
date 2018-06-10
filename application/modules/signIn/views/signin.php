@@ -39,7 +39,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form>
+				<form action="form.php" method="post">
 					<span class="login100-form-title p-b-26">
 						Welcome
 					</span>
@@ -64,17 +64,17 @@
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
 							<button class="login100-form-btn" name="submit">
-								Login
+								Sign In
 							</button>
 						</div>
 					</div>
 
-					<div class="text-center p-t-115">
+					<div class="text-center p-t-15">
 						<span class="txt1">
 							Don’t have an account?
 						</span>
 
-						<a class="txt2" href="signup.html">
+						<a class="txt2" href="<?php echo base_url();?>index.php/signUp">
 							Sign Up
 						</a>
 					</div>
