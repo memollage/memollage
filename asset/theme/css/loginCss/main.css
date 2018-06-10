@@ -1,24 +1,28 @@
+
+
+
+
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
 @font-face {
   font-family: Poppins-Regular;
-  src: url('../../fonts/poppins/Poppins-Regular.ttf');
+  src: url('../fonts/poppins/Poppins-Regular.ttf');
 }
 
 @font-face {
   font-family: Poppins-Medium;
-  src: url('../../fonts/poppins/Poppins-Medium.ttf');
+  src: url('../fonts/poppins/Poppins-Medium.ttf');
 }
 
 @font-face {
   font-family: Poppins-Bold;
-  src: url('../../fonts/poppins/Poppins-Bold.ttf');
+  src: url('../fonts/poppins/Poppins-Bold.ttf');
 }
 
 @font-face {
   font-family: Poppins-SemiBold;
-  src: url('../../fonts/poppins/Poppins-SemiBold.ttf');
+  src: url('../fonts/poppins/Poppins-SemiBold.ttf');
 }
 
 
@@ -139,14 +143,14 @@ iframe {
 .txt1 {
   font-family: Poppins-Regular;
   font-size: 13px;
-  color: #666666;
+  color: #ffffff;
   line-height: 1.5;
 }
 
 .txt2 {
   font-family: Poppins-Regular;
   font-size: 13px;
-  color: #333333;
+  color: #b326ff;
   line-height: 1.5;
 }
 
@@ -170,7 +174,11 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #f2f2f2;
+  background: url(background.jpg) no-repeat fixed;
+     -webkit-background-size: 100% 100%;
+     -moz-background-size: 100% 100%;
+     -o-background-size: 100% 100%;
+     background-size: 100% 100%;
 }
 
 .wrap-login100 {
@@ -178,8 +186,8 @@ iframe {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
-  padding: 77px 55px 33px 55px;
-
+  padding: 70px 55px 15px 55px;
+  background:rgba(0,0,0,0.4);
   box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
@@ -199,7 +207,7 @@ iframe {
   display: block;
   font-family: Poppins-Bold;
   font-size: 30px;
-  color: #333333;
+  color: #ffffff;
   line-height: 1.2;
   text-align: center;
 }
@@ -220,7 +228,7 @@ iframe {
 .input100 {
   font-family: Poppins-Regular;
   font-size: 15px;
-  color: #555555;
+  color: #ffffff;
   line-height: 1.2;
 
   display: block;
