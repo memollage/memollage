@@ -1,0 +1,150 @@
+#page-1{
+   width: 100%;
+   height: 100%;
+   background-image:
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('../../img/event.jpg');
+   color: white;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+
+
+}
+.overlay-p{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.61);
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  transform: translate(-50%, -50%);
+}
+.top{
+	width: 100%;
+	height: 10%;
+	text-align: center;
+	z-index: 2;
+
+	background-color: rgba(255, 255, 255, 0);
+}
+.bottomp{
+	text-align: center;
+	bottom: 0%;
+	width: 100%;
+	height: 8%;
+	position: absolute;
+	background-color: rgba(255, 255, 255, 0);
+}
+
+#memo{
+    font-size: 55pt;
+    font-weight: 200px;
+}
+
+a{
+	text-decoration: none;
+	color: white;
+}
+a:hover, a:active, a:focus {
+	outline: none;
+}
+.name{
+	/*position: relative;
+	width: auto;
+	height: 200px;
+	top: 30%;
+	bottom: auto;
+	margin-left: auto;
+	margin-right: auto;
+
+    text-align: center;*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bar{
+
+    width: 100%;
+    height: 100px;
+
+    margin-top: 40x;
+
+    overflow: hidden;
+}
+.right-bar{
+    z-index: 1;
+    width: 23%;
+    height: 100%;
+    margin-top: 40px;
+    padding: 1px;
+    position: absolute;
+    text-align: left;
+    right: 20%;
+}
+
+.left-bar{
+    z-index: 1;
+    width: 23%;
+    height: 100%;
+    margin-top: 40px;
+    position: absolute;
+    text-align: right;
+}
+.left-bar ul,.top-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.block-trik{
+    float: left;
+    width: 23%;
+    height: 100px;
+    overflow: auto;
+}
+.top-bar{
+
+    width: 500px;
+
+    margin-top: 40px;
+    margin-right: auto;
+
+    text-align: left;
+    list-style-type: none;
+    overflow: hidden;
+}
+.top-bar li {
+    float: left;
+}
+
+.menu-nav{
+    display: block;
+    color: rgba(255,255, 255, 0.42);
+    padding: 14px 16px;
+    margin: 0;
+    text-decoration: none;
+}
+
+.menu-nav:hover:not(.active) {
+    color:rgb(0, 255, 234);
+}
+
+.active {
+    color: rgba(37, 190, 201, 0.95);
+}
+.sign{
+    font-size: 13px;
+	font-weight: bold;
+	float: right;
+	border-radius: 3px;
+	background-color: rgba(58, 60, 62, 0);
+	height: auto;
+	padding: 2px 20px 2px;
+	border: 1px solid #5E6367;
+	line-height: 40px;
+	box-sizing: border-box;
+}
