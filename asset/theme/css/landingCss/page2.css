@@ -1,0 +1,21 @@
+#page-2{
+    width: 100%;
+   height: 100%;
+   background-image:
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('../../img/isometric4.png');
+   color: white;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+.penjelasan{
+    width: 80%;
+    height: 85%;
+    background-color: rgba(8, 8, 8, 0.849);
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  transform: translate(-50%, -50%);
+}
