@@ -16,6 +16,11 @@ class Model_lib extends CI_Model {
         $query=$this->db->update($tabel,$data,$where);
         return $query;
     }
+    function Delete($tabel,$where)
+    {
+        $query=$this->db->query("delete from $tabel $where");
+        return $query;
+    }
     function Cek($table,$where)
     {
         $query=$this->db->query("select *from $table $where");
@@ -28,11 +33,9 @@ class Model_lib extends CI_Model {
     }
     function insert($tabel,$data)
     {
-        $query=$this->db->insert($tabel, $data); 
+        $query=$this->db->insert($tabel, $data);
         return $query;
     }
-   
-
 }
 
 ?>

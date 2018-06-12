@@ -25,7 +25,12 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>asset/theme/css/loginCss/util.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>asset/theme/css/loginCss/main.css">
+
+	<script src="<?php echo base_url();?>asset/theme/vendor/jquery/jquery.js"></script>
+	<script src="<?php echo base_url();?>asset/theme/vendor/jquery/jquery.min.js"></script>
+	<script src="<?php echo base_url();?>asset/theme/js/modernizr-custom.js"></script>
 <!--===============================================================================================-->
+
 <style>
 	.logo {
 		margin: auto;
@@ -33,13 +38,18 @@
 		height: auto;
 	}
 </style>
+<script type="text/javascript">
+ var BASE_URL = "<?php echo base_url();?>index.php/";
+<?php
+	include APPPATH ."modules/signIn/ajax/signin.js"; ?>
+</script>
 </head>
 <body>
 
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form action="form.php" method="post">
+				<form id=login method="post">
 					<span class="login100-form-title p-b-26">
 						Welcome
 					</span>
@@ -48,6 +58,19 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						<div class="btn-group btn-show-class">
+							<button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="btn-show-class">
+									<i class="zmdi zmdi-caret-down"></i>
+								</span>
+							</button>
+							<div class="dropdown-menu" style="right: 0px;left:auto">
+								<a class="dropdown-item" style="display:block;" onclick="setLogin('dosen')">Dosen</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" style="display:block;" onclick="setLogin('mahasiswa')">Mahasiswa</a>
+							</div>
+						</div>
+						<input id=Slogin type="hidden" name="login" value="">
 						<input class="input100" type="text" name="email">
 						<span class="focus-input100" data-placeholder="Email"></span>
 					</div>
@@ -56,14 +79,14 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" name="password">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn" name="submit">
+							<button class="login100-form-btn signin" name="submit">
 								Sign In
 							</button>
 						</div>
@@ -103,6 +126,10 @@
 	<script src="<?php echo base_url();?>asset/theme/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="<?php echo base_url();?>asset/theme/js/loginJs/main.js"></script>
-
+	<script type="text/javascript">
+	function setLogin(x) {
+		document.getElementById("Slogin").value=x;
+	}
+	</script>
 </body>
 </html>
