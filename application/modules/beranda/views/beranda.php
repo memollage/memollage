@@ -10,7 +10,6 @@
         <div id="page-wrapper" class="page">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
                     <div class="col-sm-12">
                         <h1 class="page-header">Memollage</h1>
                     </div>
