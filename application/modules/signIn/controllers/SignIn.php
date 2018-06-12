@@ -38,6 +38,7 @@ class SignIn extends CI_Controller {
 
 	function login()
      {
+
 		$data["email"] = $this->db->escape_str($this->input->post("email"));
 		$data["password"] = stripslashes($this->db->escape_str($this->input->post("password")));
           $tabel = stripslashes($this->db->escape_str($this->input->post("login")));

@@ -46,7 +46,7 @@
 
 				<!-- Submenu 2 -->
 				<ul data-menu="submenu-2" id="submenu-2" class="menu__level" tabindex="-1" role="menu" aria-label="Fruits">
-					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">List</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="<?php echo base_url();?>index.php/kelas">List</a></li>
 					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Create</a></li>
 					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Delete</a></li>
 				</ul>
@@ -68,6 +68,5 @@
 		<div class="content">
 		</div>
 		<script src="<?php echo base_url();?>asset/theme/js/classie.js"></script>
-		<script src="<?php echo base_url();?>asset/theme/js/dummydata.js"></script>
 		<script src="<?php echo base_url();?>asset/theme/js/main.js"></script>
 	     <script src="<?php echo base_url();?>asset/theme/js/theme.js"></script>
