@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 10, 2018 at 09:56 PM
+-- Generation Time: Jun 12, 2018 at 03:44 PM
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.27-0+deb9u1
 
@@ -23,6 +23,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` varchar(100) NOT NULL,
+  `pass` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `aktivasi`
+--
+
+CREATE TABLE `aktivasi` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `kode` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `chat_kelas`
 --
 
@@ -37,17 +60,26 @@ CREATE TABLE `chat_kelas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Dosen`
+-- Table structure for table `dosen`
 --
 
-CREATE TABLE `Dosen` (
+CREATE TABLE `dosen` (
   `email` varchar(100) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `id_univ` int(11) NOT NULL,
   `tanggal_daftar` date NOT NULL,
-  `id_akses` int(11) NOT NULL
+  `id_akses` int(11) NOT NULL,
+  `aktivasi` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `dosen`
+--
+
+INSERT INTO `dosen` (`email`, `nama`, `password`, `id_univ`, `tanggal_daftar`, `id_akses`, `aktivasi`) VALUES
+('amar98@mhs.unsyiah.ac.id', 'zikri', 'kode-48MZA', 1, '2018-06-12', 2, 1),
+('muammar.clasic@gmail.com', 'zikri', 'kode-48MZA', 1, '2018-06-01', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -126,8 +158,34 @@ CREATE TABLE `mahasiswa` (
   `nama` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `tanggal_daftar` date NOT NULL,
-  `id_akses` int(11) NOT NULL
+  `id_akses` int(11) NOT NULL,
+  `aktivasi` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`email`, `nama`, `password`, `tanggal_daftar`, `id_akses`, `aktivasi`) VALUES
+('muammar.zikri.aksana@gmail.com', 'zikri', 'kode-48MZA', '2018-06-12', 4, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tes`
+--
+
+CREATE TABLE `tes` (
+  `a` int(11) NOT NULL,
+  `b` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tes`
+--
+
+INSERT INTO `tes` (`a`, `b`) VALUES
+(1, 2);
 
 -- --------------------------------------------------------
 
@@ -146,11 +204,18 @@ CREATE TABLE `universitas` (
 --
 
 INSERT INTO `universitas` (`id`, `nama_univ`, `email_at`) VALUES
-(1, 'informatika_usk', 'mhs.unsyiah.ac.id');
+(1, 'Universitas Syiah Kuala', 'unsyiah.ac.id');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `aktivasi`
+--
+ALTER TABLE `aktivasi`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_email_dosen_a` (`email`);
 
 --
 -- Indexes for table `chat_kelas`
@@ -161,9 +226,9 @@ ALTER TABLE `chat_kelas`
   ADD KEY `fk_id_user_p` (`email_user`);
 
 --
--- Indexes for table `Dosen`
+-- Indexes for table `dosen`
 --
-ALTER TABLE `Dosen`
+ALTER TABLE `dosen`
   ADD PRIMARY KEY (`email`),
   ADD KEY `fk_id_univ` (`id_univ`),
   ADD KEY `fk_id_akses` (`id_akses`);
@@ -215,6 +280,11 @@ ALTER TABLE `universitas`
 --
 
 --
+-- AUTO_INCREMENT for table `aktivasi`
+--
+ALTER TABLE `aktivasi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+--
 -- AUTO_INCREMENT for table `kelas`
 --
 ALTER TABLE `kelas`
@@ -232,14 +302,14 @@ ALTER TABLE `universitas`
 -- Constraints for table `chat_kelas`
 --
 ALTER TABLE `chat_kelas`
-  ADD CONSTRAINT `fk_id_dosen_p` FOREIGN KEY (`email_dosen`) REFERENCES `Dosen` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_id_dosen_p` FOREIGN KEY (`email_dosen`) REFERENCES `dosen` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_id_kelas_p` FOREIGN KEY (`id_kelas`) REFERENCES `kelas` (`id_kelas`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_id_user_p` FOREIGN KEY (`email_user`) REFERENCES `mahasiswa` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `Dosen`
+-- Constraints for table `dosen`
 --
-ALTER TABLE `Dosen`
+ALTER TABLE `dosen`
   ADD CONSTRAINT `fk_id_akses` FOREIGN KEY (`id_akses`) REFERENCES `hak_akses` (`id_akses`),
   ADD CONSTRAINT `fk_id_univ` FOREIGN KEY (`id_univ`) REFERENCES `universitas` (`id`);
 
@@ -247,7 +317,7 @@ ALTER TABLE `Dosen`
 -- Constraints for table `jadwal_kelas`
 --
 ALTER TABLE `jadwal_kelas`
-  ADD CONSTRAINT `fk_email_dosen_k` FOREIGN KEY (`email_dosen`) REFERENCES `Dosen` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_email_dosen_k` FOREIGN KEY (`email_dosen`) REFERENCES `dosen` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_email_user_k` FOREIGN KEY (`email_user`) REFERENCES `mahasiswa` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_id_kelas` FOREIGN KEY (`id_kelas`) REFERENCES `kelas` (`id_kelas`) ON DELETE CASCADE ON UPDATE CASCADE;
 
@@ -255,14 +325,14 @@ ALTER TABLE `jadwal_kelas`
 -- Constraints for table `jadwal_user`
 --
 ALTER TABLE `jadwal_user`
-  ADD CONSTRAINT `fk_email_dosen_j` FOREIGN KEY (`email_dosen`) REFERENCES `Dosen` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_email_dosen_j` FOREIGN KEY (`email_dosen`) REFERENCES `dosen` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_email_user_j` FOREIGN KEY (`email_user`) REFERENCES `mahasiswa` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `kelas`
 --
 ALTER TABLE `kelas`
-  ADD CONSTRAINT `fk_email_dosen` FOREIGN KEY (`email_dosen`) REFERENCES `Dosen` (`email`);
+  ADD CONSTRAINT `fk_email_dosen` FOREIGN KEY (`email_dosen`) REFERENCES `dosen` (`email`);
 
 --
 -- Constraints for table `mahasiswa`
