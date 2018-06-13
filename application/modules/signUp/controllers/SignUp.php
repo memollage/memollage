@@ -93,28 +93,33 @@ class SignUp extends CI_Controller {
                               }
 
                     }else{
-                         $_SESSION["daftarE"]=$data["email"];
-                         $_SESSION["daftarN"]=$data["nama"];
+
                          $data["id_univ"]="1";
                          $data["tanggal_daftar"]=date("Y-m-d");
                          $data["id_akses"]="2";
                          $data["aktivasi"]="0";
 
                          $tabel = "dosen";
-                         $_SESSION["table"]="dosen";
+
                          $result = $this->Model_lib->insert($tabel,$data);
 
                          $tabelA = "aktivasi";
                          $dataA["email"]=$data["email"];
                          $dataA["kode"]= hash('sha256',rand());
-                         $_SESSION["kode"]=$dataA["kode"];
+
                          $resultA = $this->Model_lib->insert($tabelA,$dataA);
 
                          $tabel = "aktivasi";
           			$where=sprintf("WHERE email='%s' AND kode='%s'",$dataA["email"],$dataA["kode"]);
           			$result = $this->Model_lib->Cek($tabel,$where);
                          $id=$result->row();
+
+                         $_SESSION["daftarE"]=$data["email"];
+                         $_SESSION["daftarN"]=$data["nama"];
+                         $_SESSION["table"]="dosen";
+                         $_SESSION["kode"]=$dataA["kode"];
                          $_SESSION["id"]=$id->id;
+
                          $err="s";
                          $klas="";
                     }
@@ -140,27 +145,31 @@ class SignUp extends CI_Controller {
 
                     }else{
 
-                         $_SESSION["daftarE"]=$data["email"];
-                         $_SESSION["daftarN"]=$data["nama"];
+
 
                          $data["tanggal_daftar"]=date("Y-m-d");
                          $data["id_akses"]="4";
                          $data["aktivasi"]="0";
 
                          $tabel = "mahasiswa";
-                         $_SESSION["table"]="mahasiswa";
+
                          $result = $this->Model_lib->insert($tabel,$data);
 
                          $tabelA = "aktivasi";
                          $dataA["email"]=$data["email"];
                          $dataA["kode"]= hash('sha256',rand());
-                         $_SESSION["kode"]=$dataA["kode"];
+
                          $resultA = $this->Model_lib->insert($tabelA,$dataA);
 
                          $tabel = "aktivasi";
           			$where=sprintf("WHERE email='%s' AND kode='%s'",$dataA["email"],$dataA["kode"]);
           			$result = $this->Model_lib->Cek($tabel,$where);
                          $id=$result->row();
+
+                         $_SESSION["daftarE"]=$data["email"];
+                         $_SESSION["daftarN"]=$data["nama"];
+                         $_SESSION["table"]="mahasiswa";
+                         $_SESSION["kode"]=$dataA["kode"];
                          $_SESSION["id"]=$id->id;
 
                          $err="s";
