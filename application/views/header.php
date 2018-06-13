@@ -20,7 +20,6 @@
 	<script src="<?php echo base_url();?>asset/theme/vendor/jquery/jquery.js"></script>
 	<script src="<?php echo base_url();?>asset/theme/vendor/jquery/jquery.min.js"></script>
 	<script src="<?php echo base_url();?>asset/theme/js/modernizr-custom.js"></script>
-
 </head>
 
 
