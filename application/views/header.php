@@ -70,10 +70,10 @@
 
                         <!-- Comment -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-bell"></i>
+                            <a class="nav-link dropdown-toggle text-muted text-muted" data-value="notif" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-bell"></i>
 								<div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
 							</a>
-                            <div class="dropdown-menu dropdown-menu-right mailbox animated zoomIn">
+                            <div id=notif class="dropdown-menu dropdown-menu-right mailbox animated zoomIn">
 
                             </div>
                         </li>
@@ -81,10 +81,10 @@
 
                         <!-- Messages -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted  " href="#" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-envelope"></i>
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" id="2" data-value="chat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-envelope"></i>
 								<div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
 							</a>
-                            <div class="dropdown-menu dropdown-menu-right mailbox animated zoomIn" aria-labelledby="2">
+                            <div id=chat class="dropdown-menu dropdown-menu-right mailbox animated zoomIn" aria-labelledby="2">
 
                             </div>
                         </li>
@@ -163,7 +163,7 @@
     <script src="<?php echo base_url();?>asset/theme/vendor/js/lib/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
 
-    <script src="<?php echo base_url();?>asset/theme/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url();?>asset/theme/vendor/bootstrap-4/js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="<?php echo base_url();?>asset/theme/vendor/js/jquery.slimscroll.js"></script>
     <!--Menu sidebar -->
@@ -190,23 +190,7 @@
      <script src="<?php echo base_url();?>asset/theme/vendor/js/scripts.js"></script>
      <script src="<?php echo base_url();?>asset/theme/vendor/js/header.js"></script>
      <script type="text/javascript">
-          window.onload=loadF();
-          $(document).ready(function(){
-             $(".menu").click(function(){
-                    var z = $(this).data("value")+"/open";
-              var url = BASE_URL+z;
-                    $.post( url, { x : 4 }).done(function(data) {
-                         $('#page-content').html(data);
-                    });
-              });
-          });
-          function loadF() {
-               var z = "beranda"+"/open";
-               var url = BASE_URL+z;
-               $.post( url, { x : 4 }).done(function(data) {
-                    $('#page-content').html(data);
-               });
-          }
+
 
      </script>
 </body>
