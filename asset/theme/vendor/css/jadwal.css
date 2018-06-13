@@ -1,0 +1,11 @@
+.text-kelas{
+     margin-top: auto !important;
+     margin-bottom: auto !important;
+     margin-left: 0;
+     margin-right: 0;
+     padding: 0;
+}
+.content-data-kelas{
+     margin-left: 10px;
+     display: flex;
+}

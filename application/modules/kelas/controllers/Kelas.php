@@ -29,8 +29,9 @@ class Kelas extends CI_Controller {
 		$data=array('page_content' => 'kelas');
 		$this->load->view($this->_public_view,$data);
 	}
-	/*public function index()
+
+	public function open()
 	{
-		$this->load->view('beranda');
-	}*/
+		$this->load->view('kelas');
+	}
 }

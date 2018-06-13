@@ -33,4 +33,8 @@ class Jadwal extends CI_Controller {
 	{
 		$this->load->view('beranda');
 	}*/
+	public function open()
+	{
+		$this->load->view('jadwal');
+	}
 }

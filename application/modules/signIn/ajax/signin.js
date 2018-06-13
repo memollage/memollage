@@ -17,7 +17,7 @@ function signin(){
          dataType : "json",
          success: function(data){
                if(data.err=='s') {
-                   window.open(BASE_URL+'beranda',"_self");
+                   window.open(BASE_URL+'Dashboard',"_self");
                } else {
                   alert(data.err);
                   $(data.klas).focus();
