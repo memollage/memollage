@@ -5,247 +5,120 @@
      ?>
      </script>
      <div class="center">
-          <div class="row">
-               <div class="col-lg-4 kelas myBtn">
-                    <div class="card">
-                          <div class="card-body">
-                               <div class="card-content container-in-flex">
-                                    <div class="header-kelas">
-                                        <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
-                                   </div>
-                                   <div class="content-data-kelas">
-                                        <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
-                                             <span style="color:red">11.00-12.00 pm</span></p>
-                                   </div>
-                               </div>
-                          </div>
-                    </div>
-               </div>
-               <div class="col-lg-4 kelas myBtn">
-                    <div class="card">
-                          <div class="card-body">
-                               <div class="card-content container-in-flex">
-                                    <div class="header-kelas">
-                                        <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
-                                   </div>
-                                   <div class="content-data-kelas">
-                                        <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
-                                             <span style="color:red">11.00-12.00 pm</span></p>
-                                   </div>
-                               </div>
-                          </div>
-                    </div>
-               </div>
-               <div class="col-lg-4 kelas myBtn">
-                    <div class="card">
-                          <div class="card-body">
-                               <div class="card-content container-in-flex">
-                                    <div class="header-kelas">
-                                        <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
-                                   </div>
-                                   <div class="content-data-kelas">
-                                        <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
-                                             <span style="color:red">11.00-12.00 pm</span></p>
-                                   </div>
-                               </div>
-                          </div>
-                    </div>
-               </div>
+          <div class="card col-lg-12">
+               <div class="card-body p-b-0">
 
-               <div class="col-lg-4 kelas">
-                    <div class="card">
-                          <div class="card-body">
-                               <div class="card-content container-in-flex">
-                                    <div class="header-kelas">
-                                        <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
-                                   </div>
-                                   <div class="content-data-kelas">
-                                        <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
-                                             <span style="color:red">11.00-12.00 pm</span></p>
-                                   </div>
-                               </div>
-                          </div>
-                    </div>
-               </div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs customtab" role="tablist">
+                         <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#monday" role="tab" aria-selected="true"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Monday</span></a> </li>
+                         <li class="nav-item"> <a class="nav-link " data-toggle="tab" href="#tuesday" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-notif"></i></span> <span class="hidden-xs-down">Tuesday</span></a> </li>
+                         <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#wednesday" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Wednesday</span></a> </li>
+                         <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#thursday" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-tes"></i></span> <span class="hidden-xs-down">Thursday</span></a> </li>
+                         <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#friday" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-tes"></i></span> <span class="hidden-xs-down">Friday</span></a> </li>
+                         <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#saturday" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-tes"></i></span> <span class="hidden-xs-down">Saturday</span></a> </li>
+                         <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#sunday" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-tes"></i></span> <span class="hidden-xs-down">Sunday</span></a> </li>
+                    </ul>
+                    <div class="tab-content">
 
-               <div class="col-lg-4 kelas">
-                    <div class="card">
-                          <div class="card-body">
-                               <div class="card-content container-in-flex">
-                                    <div class="header-kelas">
-                                        <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
+                       <div class="tab-pane active show" id="monday" role="tabpanel">
+                              <div class="row jadwal-hari" style="margin:0px;">
+                                   <div class="col-lg-4 kelas myBtn">
+                                        <div class="card">
+                                              <div class="card-body">
+                                                   <div class="card-content container-in-flex">
+                                                        <div class="header-kelas">
+                                                            <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
+                                                       </div>
+                                                       <div class="content-data-kelas">
+                                                            <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
+                                                                 <span style="color:red">11.00-12.00 pm</span></p>
+                                                       </div>
+                                                   </div>
+                                              </div>
+                                        </div>
                                    </div>
-                                   <div class="content-data-kelas">
-                                        <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
-                                             <span style="color:red">11.00-12.00 pm</span></p>
+                                   <div class="col-lg-4 kelas myBtn">
+                                        <div class="card">
+                                              <div class="card-body">
+                                                   <div class="card-content container-in-flex">
+                                                        <div class="header-kelas">
+                                                            <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
+                                                       </div>
+                                                       <div class="content-data-kelas">
+                                                            <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
+                                                                 <span style="color:red">11.00-12.00 pm</span></p>
+                                                       </div>
+                                                   </div>
+                                              </div>
+                                        </div>
                                    </div>
-                               </div>
-                          </div>
-                    </div>
-               </div>
-               <div class="col-lg-4">
-                    <div class="card">
-                          <div class="card-body">
-                               <div class="card-content container-in-flex">
-                                    <div class="header-kelas">
-                                        <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
+                                   <div class="col-lg-4">
+                                        <div class="card">
+                                              <div class="card-body">
+                                                   <div class="card-content container-in-flex">
+                                                        <div class="header-kelas">
+                                                            <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
+                                                       </div>
+                                                       <div class="content-data-kelas">
+                                                            <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
+                                                                 <span style="color:red">11.00-12.00 pm</span></p>
+                                                       </div>
+                                                   </div>
+                                              </div>
+                                        </div>
                                    </div>
-                                   <div class="content-data-kelas">
-                                        <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
-                                             <span style="color:red">11.00-12.00 pm</span></p>
+                              </div>
+                         </div>
+                       <div class="tab-pane" id="sunday" role="tabpanel">
+                              <div class="row jadwal-hari" style="margin:0px;">
+                                   <div class="col-lg-4 kelas myBtn">
+                                        <div class="card">
+                                              <div class="card-body">
+                                                   <div class="card-content container-in-flex">
+                                                        <div class="header-kelas">
+                                                            <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
+                                                       </div>
+                                                       <div class="content-data-kelas">
+                                                            <p class="nama-kelas text-kelas"> sunday Berbasis Web<br>
+                                                                 <span style="color:red">11.00-12.00 pm</span></p>
+                                                       </div>
+                                                   </div>
+                                              </div>
+                                        </div>
                                    </div>
-                               </div>
-                          </div>
-                    </div>
-               </div>
-               <div class="col-lg-4">
-                    <div class="card">
-                          <div class="card-body">
-                               <div class="card-content container-in-flex">
-                                    <div class="header-kelas">
-                                        <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
+                                   <div class="col-lg-4 kelas myBtn">
+                                        <div class="card">
+                                              <div class="card-body">
+                                                   <div class="card-content container-in-flex">
+                                                        <div class="header-kelas">
+                                                            <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
+                                                       </div>
+                                                       <div class="content-data-kelas">
+                                                            <p class="nama-kelas text-kelas"> sunday Berbasis Web<br>
+                                                                 <span style="color:red">11.00-12.00 pm</span></p>
+                                                       </div>
+                                                   </div>
+                                              </div>
+                                        </div>
                                    </div>
-                                   <div class="content-data-kelas">
-                                        <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
-                                             <span style="color:red">11.00-12.00 pm</span></p>
+                                   <div class="col-lg-4">
+                                        <div class="card">
+                                              <div class="card-body">
+                                                   <div class="card-content container-in-flex">
+                                                        <div class="header-kelas">
+                                                            <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
+                                                       </div>
+                                                       <div class="content-data-kelas">
+                                                            <p class="nama-kelas text-kelas"> sunday Berbasis Web<br>
+                                                                 <span style="color:red">11.00-12.00 pm</span></p>
+                                                       </div>
+                                                   </div>
+                                              </div>
+                                        </div>
                                    </div>
-                               </div>
-                          </div>
-                    </div>
-               </div>
-               <div class="col-lg-4">
-                    <div class="card">
-                          <div class="card-body">
-                               <div class="card-content container-in-flex">
-                                    <div class="header-kelas">
-                                        <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
-                                   </div>
-                                   <div class="content-data-kelas">
-                                        <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
-                                             <span style="color:red">11.00-12.00 pm</span></p>
-                                   </div>
-                               </div>
-                          </div>
-                    </div>
-               </div>
-               <div class="col-lg-4">
-                    <div class="card">
-                          <div class="card-body">
-                               <div class="card-content container-in-flex">
-                                    <div class="header-kelas">
-                                        <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
-                                   </div>
-                                   <div class="content-data-kelas">
-                                        <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
-                                             <span style="color:red">11.00-12.00 pm</span></p>
-                                   </div>
-                               </div>
-                          </div>
-                    </div>
-               </div>
-               <div class="col-lg-4">
-                    <div class="card">
-                          <div class="card-body">
-                               <div class="card-content container-in-flex">
-                                    <div class="header-kelas">
-                                        <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
-                                   </div>
-                                   <div class="content-data-kelas">
-                                        <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
-                                             <span style="color:red">11.00-12.00 pm</span></p>
-                                   </div>
-                               </div>
-                          </div>
-                    </div>
-               </div>
-               <div class="col-lg-4">
-                    <div class="card">
-                          <div class="card-body">
-                               <div class="card-content container-in-flex">
-                                    <div class="header-kelas">
-                                        <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
-                                   </div>
-                                   <div class="content-data-kelas">
-                                        <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
-                                             <span style="color:red">11.00-12.00 pm</span></p>
-                                   </div>
-                               </div>
-                          </div>
-                    </div>
-               </div>
-               <div class="col-lg-4">
-                    <div class="card">
-                          <div class="card-body">
-                               <div class="card-content container-in-flex">
-                                    <div class="header-kelas">
-                                        <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
-                                   </div>
-                                   <div class="content-data-kelas">
-                                        <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
-                                             <span style="color:red">11.00-12.00 pm</span></p>
-                                   </div>
-                               </div>
-                          </div>
-                    </div>
-               </div>
-               <div class="col-lg-4">
-                    <div class="card">
-                          <div class="card-body">
-                               <div class="card-content container-in-flex">
-                                    <div class="header-kelas">
-                                        <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
-                                   </div>
-                                   <div class="content-data-kelas">
-                                        <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
-                                             <span style="color:red">11.00-12.00 pm</span></p>
-                                   </div>
-                               </div>
-                          </div>
-                    </div>
-               </div>
-               <div class="col-lg-4">
-                    <div class="card">
-                          <div class="card-body">
-                               <div class="card-content container-in-flex">
-                                    <div class="header-kelas">
-                                        <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
-                                   </div>
-                                   <div class="content-data-kelas">
-                                        <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
-                                             <span style="color:red">11.00-12.00 pm</span></p>
-                                   </div>
-                               </div>
-                          </div>
-                    </div>
-               </div>
-               <div class="col-lg-4">
-                    <div class="card">
-                          <div class="card-body">
-                               <div class="card-content container-in-flex">
-                                    <div class="header-kelas">
-                                        <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
-                                   </div>
-                                   <div class="content-data-kelas">
-                                        <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
-                                             <span style="color:red">11.00-12.00 pm</span></p>
-                                   </div>
-                               </div>
-                          </div>
-                    </div>
-               </div>
-               <div class="col-lg-4">
-                    <div class="card">
-                          <div class="card-body">
-                               <div class="card-content container-in-flex">
-                                    <div class="header-kelas">
-                                        <img class="logo" src="<?php echo base_url();?>asset/theme/img/Logo.png" width="60">
-                                   </div>
-                                   <div class="content-data-kelas">
-                                        <p class="nama-kelas text-kelas"> Pemograman Berbasis Web<br>
-                                             <span style="color:red">11.00-12.00 pm</span></p>
-                                   </div>
-                               </div>
-                          </div>
+                              </div>
+                         </div>
+
                     </div>
                </div>
           </div>
@@ -269,6 +142,7 @@
                                           <!-- Nav tabs -->
                                           <ul class="nav nav-tabs customtab" role="tablist">
                                               <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#home2" role="tab" aria-selected="true"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Data Kelas</span></a> </li>
+                                              <li class="nav-item"> <a class="nav-link " data-toggle="tab" href="#notifikasi" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-notif"></i></span> <span class="hidden-xs-down">Notif</span></a> </li>
                                               <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile2" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Member</span></a> </li>
                                               <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tes" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-tes"></i></span> <span class="hidden-xs-down">Menage</span></a> </li>
 
@@ -296,6 +170,10 @@
 
 
                                                    </div>
+                                              </div>
+                                              <div id=notifikasi class="" style="margin-left: 10px;margin-right: 10px;">
+
+
                                               </div>
                                               <div class="tab-pane p-20" id="profile2" role="tabpanel">
                                                    <div class="card">
