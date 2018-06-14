@@ -23,7 +23,7 @@
     <link href="<?php echo base_url();?>asset/theme/vendor/css/helper.css" rel="stylesheet">
     <link href="<?php echo base_url();?>asset/theme/vendor/css/style.css" rel="stylesheet">
     <link href="<?php echo base_url();?>asset/theme/vendor/css/ml.css" rel="stylesheet">
-
+ 
      <script>
           var BASE_URL = '<?php echo base_url(); ?>index.php/';
      </script>
