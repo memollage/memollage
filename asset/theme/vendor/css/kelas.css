@@ -1,15 +1,64 @@
+.card-img-kelas{
+     position: relative;
+     max-width: 100px;
+     padding: 20px;
+     text-align: center;
+
+     border: 0 solid #e7e7e7;
+     border-radius: 5px;
+     background: #ffffff none repeat scroll 0 0;
+}
+.card-img-kelas-del{
+     position: absolute;
+     background-color: #0009;
+     width: 50px;
+     height: 50px;
+     border-radius: 100px;
+}
+.card-img-kelas-del:before {
+     position: absolute;
+     margin-top: 14px;
+     margin-left: -7.5px;
+     font-family: 'FontAwesome';
+     font-size: 14pt;
+     content: "\f00d";
+     color: white;
+}
 .text-kelas{
      margin-top: auto !important;
      margin-bottom: auto !important;
      margin-left: 0;
      margin-right: 0;
      padding: 0;
+     max-width: 100%;
 }
 .content-data-kelas{
      margin-left: 10px;
      display: flex;
+     max-width: 75%;
 }
-
+.hidden-trash{
+     position:absolute;
+     visibility: hidden;
+     left: 90%;
+     bottom: 10%;
+}
+.card-kelas{
+     background-color: aquamarine;
+}
+.del-kelas{
+     background-color: red;
+}
+.tooltip {
+	display:none;
+	position:absolute;
+	border:1px solid #333;
+	background-color:#161616;
+	border-radius:5px;
+	padding:10px;
+	color:#fff;
+	font-size:12px Arial;
+}
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -40,6 +89,38 @@
     animation-duration: 0.4s;
     margin-left: 239px;
     height: 84%;
+
+}
+
+/* The Modal (background) */
+.modal-kelas{
+    display: none; /* Hidden by default */
+
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content-kelas{
+
+     width: 100%;
+     height: 100%;
+
+     background-color: #fefefe4d;
+     -webkit-animation-name: slideIn;
+     -webkit-animation-duration: 0.4s;
+     animation-name: slideIn;
+     animation-duration: 0.4s;
 
 }
 
