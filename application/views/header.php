@@ -23,7 +23,7 @@
     <link href="<?php echo base_url();?>asset/theme/vendor/css/helper.css" rel="stylesheet">
     <link href="<?php echo base_url();?>asset/theme/vendor/css/style.css" rel="stylesheet">
     <link href="<?php echo base_url();?>asset/theme/vendor/css/ml.css" rel="stylesheet">
- 
+
      <script>
           var BASE_URL = '<?php echo base_url(); ?>index.php/';
      </script>
@@ -41,13 +41,13 @@
         <div class="header">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- Logo -->
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                <div class="navbar-header" style="padding-left: 10px;">
+                    <a class="navbar-brand" href="index.html" style="display:flex">
                         <!-- Logo icon -->
-                        <b><img src="<?php echo base_url();?>asset/theme/vendor/images/logo.png" alt="homepage" class="dark-logo" /></b>
+                        <b><img src="<?php echo base_url();?>asset/theme/img/Logo.png" alt="homepage" class="dark-logo" width="40" /></b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
-                        <span><img src="<?php echo base_url();?>asset/theme/vendor/images/logo-text.png" alt="homepage" class="dark-logo" /></span>
+                        <span style="margin-top: auto;margin-bottom: auto;"><h5 style="margin-left: 20px;">MEMOLLAGE</h5></span>
                     </a>
                 </div>
                 <!-- End Logo -->
@@ -117,16 +117,15 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
 
-                         <li> <a class="menu" data-value="beranda"><i class="fa fa-home"></i><span class="hide-menu">Home</span></a></li>
-                         <li> <a class="menu" data-value="kelas"><i class="fa fa-th-large"></i><span class="hide-menu">Class</span></a></li>
+                         <li> <a class="menu" data-value="beranda/open"><i class="fa fa-home"></i><span class="hide-menu">Home</span></a></li>
+                         <li> <a class="menu" data-value="kelas/open"><i class="fa fa-th-large"></i><span class="hide-menu">Class</span></a></li>
                          <li> <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-calendar"></i><span class="hide-menu">Schedule</span></a>
                              <ul aria-expanded="false" class="collapse">
-                                 <li><a class="menu" data-value="kalender">Calendar </a></li>
-                                 <li><a class="menu" data-value="roster">Roster </a></li>
+                                 <li><a class="menu" data-value="kalender/open">Calendar </a></li>
+                                 <li><a class="menu" data-value="roster/open">Roster </a></li>
                              </ul>
                          </li>
-                         <li> <a class="menu" data-value="about"><i class="fa fa-rocket"></i><span class="hide-menu">About</span></a></li>
-
+                         <li> <a class="menu" data-value="about/open"><i class="fa fa-rocket"></i><span class="hide-menu">About</span></a></li>
 
 
                     </ul>
