@@ -26,10 +26,20 @@ class Model_lib extends CI_Model {
         $query=$this->db->query("select *from $table $where");
         return $query;
     }
+    function Count($table,$where)
+    {
+        $query=$this->db->query("select count(*) from $table $where");
+        return $query;
+    }
     function SelectQuery($sql)
     {
         $query=$this->db->query($sql);
         return $query;
+    }
+    function SelectWhere($table,$where)
+    {
+         $query=$this->db->query("select *from $table $where");
+         return $query;
     }
     function insert($tabel,$data)
     {
