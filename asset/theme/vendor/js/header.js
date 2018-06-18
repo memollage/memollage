@@ -3,7 +3,7 @@ window.onload=loadF();
 
 $(document).ready(function(){
    $(".menu").click(function(){
-          var z = $(this).data("value")+"/open";
+          var z = $(this).data("value");
           var url = BASE_URL+z;
           $.post( url, { x : 4 }).done(function(data) {
                $('#page-content').html(data);
