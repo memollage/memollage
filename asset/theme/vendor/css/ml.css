@@ -1,3 +1,4 @@
 .container-in-flex{
      display: flex;
+     max-width: 100%;
 }
