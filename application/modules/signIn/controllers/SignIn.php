@@ -78,6 +78,18 @@ class SignIn extends CI_Controller {
                               if($result->num_rows()>0){
                                    $_SESSION["akun"]=$data["email"];
                                    $_SESSION["table"]=$tabel;
+
+
+                                   $tabel=$_SESSION["table"];
+                                   $where=sprintf("WHERE email='%s'",$_SESSION["akun"]);
+                         		$result = $this->Model_lib->SelectWhere($tabel,$where)->row();
+
+                                   $tabel="data_foto_profile";
+                                   $where=sprintf("WHERE email='%s' order by tanggal_perubahan DESC",$_SESSION["akun"]);
+                         		$resultF = $this->Model_lib->SelectWhere($tabel,$where)->row();
+
+                                   $_SESSION["data"]=array('result' => $result,'resultF' => $resultF );
+
                                    $err="s";
                                    $klas="";
                               }else {
@@ -99,6 +111,17 @@ class SignIn extends CI_Controller {
                               if($result->num_rows()>0){
                                    $_SESSION["akun"]=$data["email"];
                                    $_SESSION["table"]=$tabel;
+
+                                   $tabel=$_SESSION["table"];
+                                   $where=sprintf("WHERE email='%s'",$_SESSION["akun"]);
+                         		$result = $this->Model_lib->SelectWhere($tabel,$where)->row();
+
+                                   $tabel="data_foto_profile";
+                                   $where=sprintf("WHERE email='%s' order by tanggal_perubahan DESC",$_SESSION["akun"]);
+                         		$resultF = $this->Model_lib->SelectWhere($tabel,$where)->row();
+
+                                   $_SESSION["data"]=array('result' => $result,'resultF' => $resultF );
+
                                    $err="s";
                                    $klas="";
                               }else {
@@ -115,5 +138,11 @@ class SignIn extends CI_Controller {
 	     }
 	    		$arr = array('err'=>$err,'klas'=>$klas);
 	    echo json_encode($arr);
+     }
+
+     function logout(){
+          $this->session->unset_userdata("akun");
+          $this->session->unset_userdata("table");
+          $this->session->unset_userdata("data");
      }
 }
