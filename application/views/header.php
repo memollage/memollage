@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url();?>asset/theme/vendor/images/favicon.png">
-    <title>Ela - Bootstrap Admin Dashboard Template</title>
+    <title>MEMOLLAGE</title>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url();?>asset/theme/vendor/bootstrap-4/css/bootstrap.min.css" rel="stylesheet">
 
@@ -26,6 +26,8 @@
 
      <script>
           var BASE_URL = '<?php echo base_url(); ?>index.php/';
+          var FLAG_INIT_CHAT=0;
+          var FLAG_INIT_NOTIF=0;
      </script>
 </head>
 
@@ -73,8 +75,19 @@
                             <a class="nav-link dropdown-toggle text-muted text-muted" data-value="notif" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-bell"></i>
 								<div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
 							</a>
-                            <div id=notif class="dropdown-menu dropdown-menu-right mailbox animated zoomIn">
-
+                            <div class="dropdown-menu dropdown-menu-right mailbox animated zoomIn">
+                                 <ul>
+                                     <li>
+                                         <div class="drop-title">Notifications</div>
+                                     </li>
+                                     <li>
+                                         <div id=notif class="message-center">
+                                         </div>
+                                    </li>
+                                    <li>
+                                         <a class="nav-link text-center" href="javascript:void(0);"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
+                                    </li>
+                                </ul>
                             </div>
                         </li>
                         <!-- End Comment -->
@@ -93,14 +106,11 @@
 
                         <!-- Profile -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url();?>asset/theme/vendor/images/users/5.jpg" alt="user" class="profile-pic" /></a>
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url()."asset/images/".$resultF->id_foto ?>" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                                    <li><a href="#"><i class="ti-user"></i> Profile</a></li>
-                                    <li><a href="#"><i class="ti-wallet"></i> Balance</a></li>
-                                    <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
-                                    <li><a href="#"><i class="ti-settings"></i> Setting</a></li>
-                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    <li><a class="menu" data-value="akun/open" ><i class="ti-user"></i> Profile</a></li>
+                                    <li><a href="#" onclick="logout()"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -160,6 +170,8 @@
     <!-- End Wrapper -->
     <!-- All Jquery -->
     <script src="<?php echo base_url();?>asset/theme/vendor/js/lib/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url();?>asset/theme/vendor/js/lib/bootstrap/js/popper.min.js"></script>
+
     <!-- Bootstrap tether Core JavaScript -->
 
     <script src="<?php echo base_url();?>asset/theme/vendor/bootstrap-4/js/bootstrap.min.js"></script>
@@ -187,6 +199,11 @@
      <!-- scripit init-->
 
      <script src="<?php echo base_url();?>asset/theme/vendor/js/scripts.js"></script>
+     <script>
+          <?php
+               include APPPATH ."modules/notif/ajax/notif.js";
+           ?>
+     </script>
      <script src="<?php echo base_url();?>asset/theme/vendor/js/header.js"></script>
      <script type="text/javascript">
 
