@@ -33,8 +33,10 @@ class Kelas extends CI_Controller {
 
 	public function open()
 	{
-		$this->load->view('kelas');
+		$data["akun"]=$_SESSION["table"];
+		$this->load->view('kelas',$data);
 	}
+
 
 
 	public function loadKelas($pos)
@@ -44,7 +46,9 @@ class Kelas extends CI_Controller {
 
 		//$where="WHERE email_dosen=";
 		//$where=sprintf("WHERE email_dosen='%s'","muammar.clasic@gmail.com");
-		$where=sprintf("WHERE email_dosen='%s'",$email);
+		//$where=sprintf("WHERE email_dosen='%s'",$email);
+		$where=sprintf("WHERE id_kelas in (select id_kelas from jadwal_kelas where email='%s')",$_SESSION["akun"]);
+
 		$result = $this->Model_lib->SelectWhere($tabel,$where);
 
 		//$this->orderResult($result)->result() as $row)
@@ -135,10 +139,11 @@ class Kelas extends CI_Controller {
 
 			}
 
-
-		$tabel="kelas";
+		//$tabel="kelas";
 		$email=$_SESSION["akun"];
-		$where=sprintf("select hari,count(*) as jumlah from %s WHERE email_dosen='%s' group by hari",$tabel,$email);
+		//$where=sprintf("select hari,count(*) as jumlah from %s WHERE email_dosen='%s' group by hari",$tabel,$email);
+		$where=sprintf("select hari,count(*) as jumlah from kelas inner join jadwal_kelas on kelas.id_kelas=jadwal_kelas.id_kelas where jadwal_kelas.email='%s' group by kelas.hari",$email);
+
 		$result = $this->Model_lib->SelectQuery($where);
 
 		$idx=0;
@@ -261,7 +266,7 @@ class Kelas extends CI_Controller {
 		$data["hari"] = stripslashes($this->db->escape_str($this->input->post("hari")));
 		$data["jam_mulai"] = stripslashes($this->db->escape_str($this->input->post("jam_mulai")));
 		$data["jam_akhir"] = stripslashes($this->db->escape_str($this->input->post("jam_akhir")));
-		$data["tanggal_pembuatan"] = date("Y:m:d");
+		$data["tanggal_pembuatan"] = date("Y-m-d H:i:s");
 
 		$result = $this->Model_lib->insert($tabel,$data);
 		if($result){
@@ -271,6 +276,16 @@ class Kelas extends CI_Controller {
 			$err="s";
 			$arr = array('err'=>$err,'klas'=>$data);
 		}
+
+		$tabelKelas="kelas";
+		$whereJadwal=sprintf("WHERE email_dosen='%s' AND tanggal_pembuatan='%s'",$_SESSION["akun"],$data["tanggal_pembuatan"]);
+		$dataInsert["id_kelas"]=$this->Model_lib->Cek($tabelKelas,$whereJadwal)->row()->id_kelas;
+		$dataInsert["email"]=$_SESSION["akun"];
+		//$result=0;
+		$tabelKelas="jadwal_kelas";
+		$dataInsert["id_akses"]= "2";
+		$dataInsert["tanggal_penambahan"]=date("Y-m-d");
+		$result=$this->Model_lib->insert($tabelKelas,$dataInsert);
 
     		echo json_encode($arr);
 	}
@@ -318,15 +333,18 @@ class Kelas extends CI_Controller {
 				$whereAkun=sprintf("WHERE email='%s'",$row->email);
 				$resultAkun=$this->Model_lib->SelectWhere($resultAkses->akses,$whereAkun)->row();
 				//print_r($resultAkun);
+				$tabelF="data_foto_profile";
+		          $whereF=sprintf("WHERE email='%s' order by tanggal_perubahan DESC",$row->email);
+				$resultF = $this->Model_lib->SelectWhere($tabelF,$whereF)->row();
 
 			$var.='<div class="media">
 					<div class="media-left">
-						<a href="#"><img alt="..." src="'.base_url().'asset/theme/vendor/images/avatar/1.jpg" class="media-object"></a>
+						<a href="#" onclick="profileUserML(this)" data-value="'.$resultAkun->email.'"><img alt="..." src="'.base_url().'asset/images/'.$resultF->id_foto.'" class="media-object"></a>
 					</div>
 					<div class="media-body">
 						<h4 class="media-heading">'.$resultAkun->nama.'</h4>
-						<p>'.$resultAkun->email.' </p>
-						<p class="comment-date">'.date("d F Y",strtotime($row->tanggal_penambahan)).'</p>
+						<p class="email-text">'.$resultAkun->email.'</p>
+						<p class="comment-date" style="top:90%;">'.date("d F Y",strtotime($row->tanggal_penambahan)).'</p>
 					</div>
 				</div>';
 			}
@@ -371,10 +389,12 @@ class Kelas extends CI_Controller {
 				$whereAkun=sprintf("WHERE email='%s'",$row->email);
 				$resultAkun=$this->Model_lib->SelectWhere($resultAkses->akses,$whereAkun)->row();
 
-
+				$tabelF="data_foto_profile";
+		          $whereF=sprintf("WHERE email='%s' order by tanggal_perubahan DESC",$resultAkun->email);
+				$resultF = $this->Model_lib->SelectWhere($tabelF,$whereF)->row();
 
 				$var.='<div id="img-'.$row->id.'" class="card-img-kelas" data-value="close" onclick="hapusAnggota(this)">
-						<a  href="#"><div class="fade-img "></div><img class="masterTooltip" title="'.$resultAkun->email.'" style="border-radius: 100px;height: 50px !important;width: 50px !important;margin: 0 auto;" alt="..." src="'.base_url().'asset/theme/vendor/images/users/5.jpg"></a>
+						<a  href="#"><div class="fade-img "></div><img class="masterTooltip" title="'.$resultAkun->email.'" style="border-radius: 100px;height: 50px !important;width: 50px !important;margin: 0 auto;" alt="..." src="'.base_url().'asset/images/'.$resultF->id_foto.'"></a>
 						<p>'.$resultAkun->nama.'</p>
 					</div>';
 			}
@@ -411,10 +431,11 @@ class Kelas extends CI_Controller {
 
 			$tabel="universitas";
 			$atEmail=$this->trimEmail($dataInsert["email"]);
+
 			$where=sprintf("where email_at='%s'",$atEmail);
 			$result = $this->Model_lib->Cek($tabel,$where)->num_rows();
 			//$result=0;
-			$dataInsert["id_akses"]= $result==0 ? "2" : "4";
+			$dataInsert["id_akses"]= $result==0 ? "4" : "2";
 			$dataInsert["tanggal_penambahan"]=date("Y-m-d");
 
 			$tabel="jadwal_kelas";
@@ -442,14 +463,13 @@ class Kelas extends CI_Controller {
 	{
 		$stringSearch="";
 		$dataKelas=null;
+		$dataKelas=sprintf("email not in (select email from jadwal_kelas where id_kelas='%s')",$kelas);
 		if($this->isEmail($value)==1){
 			$stringSearch="email";
-			$dataKelas=sprintf("email not in (select email from jadwal_kelas where id_kelas='%s')",$kelas);
 
 		}
 		else{
 			$stringSearch="nama";
-			$dataKelas=sprintf("email not in (select email from jadwal_kelas where nama='%s')",$value);
 		}
 
 		$data=$_POST['data'];
@@ -466,20 +486,28 @@ class Kelas extends CI_Controller {
 		$result = $this->Model_lib->SelectQuery($where);
 		$var="";
 		foreach($result->result() as $row){
+			$tabelF="data_foto_profile";
+			$whereF=sprintf("WHERE email='%s' order by tanggal_perubahan DESC",$row->email);
+			$resultF = $this->Model_lib->SelectWhere($tabelF,$whereF)->row();
+
 			$var.='
 			<div class="card-img-kelas" data-value="close" onclick="move(this)">
 				<input class="id_user" type="hidden" name="" value="'.$row->email.'">
-				<a  href="#"><div class="fade-img "></div><img style="border-radius: 100px;height: 50px !important;width: 50px !important;margin: 0 auto;" src="'.base_url().'asset/theme/vendor/images/avatar/1.jpg"></a>
+				<a  href="#"><div class="fade-img "></div><img class="masterTooltip" title="'.$row->email.'" style="border-radius: 100px;height: 50px !important;width: 50px !important;margin: 0 auto;" src="'.base_url().'asset/images/'.$resultF->id_foto.'"></a>
 				<p>'.$row->nama.'</p>
 			</div>';
 		}
 		$where=sprintf("SELECT * from mahasiswa WHERE %s AND %s like '%s' AND %s",$whereSearch,$stringSearch,"%".$value."%",$dataKelas);
 		$result = $this->Model_lib->SelectQuery($where);
 		foreach($result->result() as $row){
+			$tabelF="data_foto_profile";
+			$whereF=sprintf("WHERE email='%s' order by tanggal_perubahan DESC",$row->email);
+			$resultF = $this->Model_lib->SelectWhere($tabelF,$whereF)->row();
+
 			$var.='
-			<div class="card-img-kelas" data-value="found" onclick="move(this)">
+			<div class="card-img-kelas" data-value="close" onclick="move(this)">
 				<input class="id_user" type="hidden" name="" value="'.$row->email.'">
-				<a  href="#"><div class="fade-img "></div><img style="border-radius: 100px;height: 50px !important;width: 50px !important;margin: 0 auto;" src="'.base_url().'asset/theme/vendor/images/avatar/1.jpg"></a>
+				<a  href="#"><div class="fade-img "></div><img class="masterTooltip" title="'.$row->email.'" style="border-radius: 100px;height: 50px !important;width: 50px !important;margin: 0 auto;" src="'.base_url().'asset/images/'.$resultF->id_foto.'"></a>
 				<p>'.$row->nama.'</p>
 			</div>';
 		}
@@ -509,5 +537,65 @@ class Kelas extends CI_Controller {
 			}
 		}
 		return 0;
+	}
+
+	public function getChat($value=null)
+	{
+		$table='chat_kelas';
+		$where=sprintf("WHERE id_kelas='%s' order by waktu_pembuatan LIMIT 10",$value);
+		$result=$this->Model_lib->SelectWhere($table,$where);
+
+		$var="";
+		foreach ($result->result() as $row) {
+			$tabelF="data_foto_profile";
+			$whereF=sprintf("WHERE email='%s' order by tanggal_perubahan DESC",$row->email);
+			$resultF = $this->Model_lib->SelectWhere($tabelF,$whereF)->row();
+
+			$tabelU=$_SESSION["table"];
+			$whereU=sprintf("WHERE email='%s'",$row->email);
+			$resultU = $this->Model_lib->SelectWhere($tabelU,$whereU)->row();
+
+			$var.='
+			<div class="media">
+				<div class="media-left">
+					<a onclick="profileUserML(this)" data-value="'.$resultU->email.'"><img alt="..." src="'.base_url().'asset/images/'.$resultF->id_foto.'" class="media-object"></a>
+				</div>
+				<div class="media-body">
+					<h4 class="media-heading" style="width: 220px !important;">'.$resultU->nama.'</h4>
+					<p style="width: 220px !important;">'.$row->pesan.'</p>
+					<p class="comment-date" style="top:90%;">'.$this->makeTime($row->waktu_pembuatan).'</p>
+				</div>
+			</div>
+			';
+		}
+		echo $var;
+	}
+
+	public function sendChat($kelas){
+		$tabel="chat_kelas";
+          $data["email"] =$_SESSION["akun"];
+          $data["id_kelas"] =$kelas;
+		$data["pesan"] = stripslashes($this->db->escape_str($this->input->post("pesan")));
+		$data["waktu_pembuatan"] = date("Y-m-d H:i:s");
+
+          $result = $this->Model_lib->insert($tabel,$data);
+          if($result){
+               $err="s";
+               $arr = array('err'=>$err,'klas'=>$data);
+          }else{
+               $err="s";
+               $arr = array('err'=>$err,'klas'=>$data);
+          }
+          echo json_encode($arr);
+	}
+	public function makeTime($value)
+	{
+		$dateKirim=date("Y-m-d",strtotime($value));
+		if(strcmp($dateKirim,date("Y-m-d"))==0){
+			//echo $value" ".$dateKirim." ".date("Y-m-d")."\n";
+			$dt = DateTime::createFromFormat("Y-m-d H:i:s",$value);
+			return $dt->format("H:i");
+		}
+		return date("Y-m-d, H:i",strtotime($value));
 	}
 }
