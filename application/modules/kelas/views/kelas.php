@@ -1,6 +1,7 @@
      <link href="<?php echo base_url();?>asset/theme/vendor/css/kelas.css" rel="stylesheet">
      <script type="text/javascript">
      <?php
+          include APPPATH ."modules/kelas/ajax/chatKelas.js";
           include APPPATH ."modules/kelas/ajax/kelas.js";
           include APPPATH ."modules/kelas/ajax/kelasElement.js";
      ?>
@@ -21,9 +22,13 @@
                          <li class="nav-item"> <a data-value="Sunday" class="nav-link skip-del" data-toggle="tab" href="#Sunday"  role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-tes"></i></span> <span class="hidden-xs-down">Sunday</span></a> </li>
 
                          <div class="" style="margin-left:auto;margin-top:auto">
-                              <button type="button" id=add class="btn btn-success btn-flat btn-addon m-b-10 m-l-5 addkelas"><i id=add-btn class="ti-plus"></i>Add</button>
-                              <button type="button" id=del class="btn btn-danger btn-flat btn-addon m-b-10 m-l-5 delKelas"  value="del"><i class="ti-minus"></i>Del</button>
-                              <!-- The Modal -->
+                              <?php
+                                   if(strcmp($akun,"dosen")==0){
+                                        echo '<button type="button" id=add class="btn btn-success btn-flat btn-addon m-b-10 m-l-5 addkelas"><i id=add-btn class="ti-plus"></i>Add</button>
+                                        <button type="button" id=del class="btn btn-danger btn-flat btn-addon m-b-10 m-l-5 delKelas"  value="del"><i class="ti-minus"></i>Del</button>';
+                                   }
+                               ?>
+                               <!-- The Modal -->
                               <div id="addKelas" class="modal-kelas" style="visibility:hidden">
 
                                 <!-- Modal content -->
@@ -131,9 +136,18 @@
                                           <!-- Nav tabs -->
                                           <ul class="nav nav-tabs customtab" role="tablist">
                                               <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#dataKelas" role="tab" aria-selected="true"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Data Kelas</span></a> </li>
-                                              <li class="nav-item"> <a class="nav-link " data-toggle="tab" href="#notifikasi" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-notif"></i></span> <span class="hidden-xs-down">Notif</span></a> </li>
-                                              <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#member" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Member</span></a> </li>
-                                              <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#menages" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-tes"></i></span> <span class="hidden-xs-down">Menage</span></a> </li>
+                                              <?php
+                                                  if(strcmp($akun,"dosen")==0){
+                                                       echo '
+                                                        <li class="nav-item"> <a class="nav-link " onclick="loadNotifBoard()" data-toggle="tab" href="#notifikasi" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-notif"></i></span> <span class="hidden-xs-down">Notif</span></a> </li>
+                                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#member" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Member</span></a> </li>
+                                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#menages" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-tes"></i></span> <span class="hidden-xs-down">Menage</span></a> </li>';
+                                                  }else {
+                                                       echo '
+                                                       <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#member" role="tab" aria-selected="false"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Member</span></a> </li>
+                                                       ';
+                                                  }
+                                              ?>
 
                                           </ul>
                                           <!-- Tab panes -->
@@ -176,79 +190,16 @@
                                    <div class="card-title">
                                         <h4>Message </h4>
                                    </div>
-                                   <div class="con-scroll" style="overflow: auto;">
-								<div class="recent-comment">
-									<div class="media">
-										<div class="media-left">
-											<a href="#"><img alt="..." src="<?php echo base_url();?>asset/theme/vendor/images/avatar/1.jpg" class="media-object"></a>
-										</div>
-										<div class="media-body">
-											<h4 class="media-heading">john doe</h4>
-											<p>Cras sit amet nibh libero, in gravida nulla. </p>
-											<p class="comment-date">October 21, 2018</p>
-										</div>
-									</div>
-									<div class="media">
-										<div class="media-left">
-											<a href="#"><img alt="..." src="<?php echo base_url();?>asset/theme/vendor/images/avatar/1.jpg" class="media-object"></a>
-										</div>
-										<div class="media-body">
-											<h4 class="media-heading">john doe</h4>
-											<p>Cras sit amet nibh libero, in gravida nulla. </p>
-											<p class="comment-date">October 21, 2018</p>
-										</div>
-									</div>
-									<div class="media">
-										<div class="media-left">
-											<a href="#"><img alt="..." src="<?php echo base_url();?>asset/theme/vendor/images/avatar/1.jpg" class="media-object"></a>
-										</div>
-										<div class="media-body">
-											<h4 class="media-heading">john doe</h4>
-											<p>Cras sit amet nibh libero, in gravida nulla. </p>
-											<p class="comment-date">October 21, 2018</p>
-										</div>
-									</div>
-									<div class="media">
-										<div class="media-left">
-											<a href="#"><img alt="..." src="<?php echo base_url();?>asset/theme/vendor/images/avatar/1.jpg" class="media-object"></a>
-										</div>
-										<div class="media-body">
-											<h4 class="media-heading">john doe</h4>
-											<p>Cras sit amet nibh libero, in gravida nulla. </p>
-											<p class="comment-date">October 21, 2018</p>
-										</div>
-									</div>
-
-									<div class="media">
-										<div class="media-left">
-											<a href="#"><img alt="..." src="<?php echo base_url();?>asset/theme/vendor/images/avatar/1.jpg" class="media-object"></a>
-										</div>
-										<div class="media-body">
-											<h4 class="media-heading">john doe</h4>
-											<p>Cras sit amet nibh libero, in gravida nulla. </p>
-											<p class="comment-date">October 21, 2018</p>
-										</div>
-									</div>
-
-									<div class="media no-border">
-										<div class="media-left">
-											<a href="#"><img alt="..." src="<?php echo base_url();?>asset/theme/vendor/images/avatar/1.jpg" class="media-object"></a>
-										</div>
-										<div class="media-body">
-											<h4 class="media-heading">Mr. Michael</h4>
-											<p>Cras sit amet nibh libero, in gravida nulla. </p>
-											<div class="comment-date">October 21, 2018</div>
-										</div>
-									</div>
+                                   <div id="chatKelas-scroll" class="con-scroll" style="overflow: auto;">
+								<div id=chatKelas class="recent-comment">
 								</div>
                                    </div>
                               </div>
-                              <div class="text-right" style="display:flex;background-color:#fcfcfc;">
+                              <form id=formChatKelas class="text-right" style="display:flex;background-color:#fcfcfc;">
+                                        <textarea id=formEditChatKelas name="pesan" rows="1" cols="1" class="form-control"></textarea>
+                                        <button type="button" class="btn btn-purple waves-effect waves-light" onclick="sendChatKelas()"><i class="fa fa-send m-l-10"></i> </button>
+                              </form>
 
-                                   <textarea name="name" rows="1" cols="1" class="form-control">
-                                   </textarea>
-                                   <button class="btn btn-purple waves-effect waves-light"><i class="fa fa-send m-l-10"></i> </button>
-                              </div>
                          </div>
                     </div>
 
