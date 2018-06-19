@@ -44,11 +44,21 @@ class Confirmation extends CI_Controller {
 
                $where=sprintf("email='%s'",$data["email"]);
                $dataA["aktivasi"]=1;
-               $result = $this->Model_lib->Update($dataA,$tableS,$where);
+               $result = $this->Model_lib->Update($tableS,$dataA,$where);
 
                $tabel = "aktivasi";
                $where=sprintf("WHERE email='%s' AND kode='%s'",$data["email"],$kode);
                $result = $this->Model_lib->Delete($tabel,$where);
+
+               $data["id_foto"]="memollage_user.png";
+               $data["tanggal_perubahan"]=date("Y-m-d H:i:s");
+               $result=$this->Model_lib->insert("data_foto_profile",$data);
+
+               $dataAKUN["email"]=$data["email"];
+               $dataAKUN["profile"]="Lets Change your profile information";
+               $dataAKUN["bio"]="I'm Not 'user'";
+               $result=$this->Model_lib->insert("akun",$dataAKUN);
+
                $this->confirm("success");
           }
           else {
