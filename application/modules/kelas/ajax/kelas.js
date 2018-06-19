@@ -113,7 +113,7 @@ $(document).ready(function() {
                          }
                     },
                     error: function(data){
-                         alert("sss");
+                         alert("save-err");
                     }
                 });
 
@@ -139,6 +139,7 @@ function kelas(x){
      memberKelas(x.id);
      modal = document.getElementById('modalKelas');
      modal.style.display = "block";
+     initPesan(x.id);
 }
 function loadKelas(x){
      DELETE_KELAS=[];
@@ -146,6 +147,14 @@ function loadKelas(x){
      var url = BASE_URL+"kelas/loadKelas/"+x;
      $.post( url, { x : 4 }).done(function(data) {
           $('#kelasContent').html(data);
+          //alert(data);
+     });
+}
+function loadNotifBoard(){
+
+     var url = BASE_URL+"notifBoard/open";
+     $.post( url, { x : 4 }).done(function(data) {
+          $('#notifikasi').html(data);
 
           //alert(data);
      });
