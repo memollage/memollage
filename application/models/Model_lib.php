@@ -8,14 +8,15 @@ class Model_lib extends CI_Model {
     }
      function Save($data,$table,$param)
     {
-        $query=$this->db->update($table,$data,array('gid' => $param["gid"],'tahun'=>$param["tahun"]));
+        $query=$this->db->update($table,$data,array('profile' => $param["profile"],'bio'=>$param["bio"]));
         return $query;
     }
-    function Update($data,$tabel,$where)
+    function Update($tabel,$data,$where)
     {
         $query=$this->db->update($tabel,$data,$where);
         return $query;
     }
+
     function Delete($tabel,$where)
     {
         $query=$this->db->query("delete from $tabel $where");
