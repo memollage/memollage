@@ -31,6 +31,39 @@ class Notif extends CI_Controller {
 
      public function open()
      {
-          $this->load->view('notif');
+          //$this->load->view('notif');
+          echo $this->get();
      }
+
+     public function get()
+     {
+          $table='notifikasi';
+          $where=sprintf("WHERE id_kelas in (select id_kelas from jadwal_kelas WHERE email='%s') order by waktu_pembuatan DESC LIMIT 10",$_SESSION["akun"]);
+          $result=$this->Model_lib->SelectWhere($table,$where);
+
+          $var="";
+          foreach ($result->result() as $row) {
+               $var.='
+               <a href="#">
+                  <div class="btn btn-danger btn-circle m-r-10"><i class="fa fa-link"></i></div>
+                  <div class="mail-contnet">
+                       <h5>'.$row->title.'</h5> <span class="mail-desc">'.$row->komen.'</span> <span class="time">'.$this->makeTime($row->waktu_pembuatan).'</span>
+                  </div>
+               </a>
+               ';
+          }
+          echo $var;
+     }
+
+     public function makeTime($value)
+     {
+          $dateKirim=date("Y-m-d",strtotime($value));
+          if(strcmp($dateKirim,date("Y-m-d"))==0){
+               //echo $value" ".$dateKirim." ".date("Y-m-d")."\n";
+               $dt = DateTime::createFromFormat("Y-m-d H:i:s",$value);
+               return $dt->format("H:i");
+          }
+          return date("Y-m-d, H:i",strtotime($value));
+     }
+
 }
