@@ -129,12 +129,8 @@
 
                          <li> <a class="menu" data-value="beranda/open"><i class="fa fa-home"></i><span class="hide-menu">Home</span></a></li>
                          <li> <a class="menu" data-value="kelas/open"><i class="fa fa-th-large"></i><span class="hide-menu">Class</span></a></li>
-                         <li> <a class="has-arrow" href="#" aria-expanded="false"><i class="fa fa-calendar"></i><span class="hide-menu">Schedule</span></a>
-                             <ul aria-expanded="false" class="collapse">
-                                 <li><a class="menu" data-value="kalender/open">Calendar </a></li>
-                                 <li><a class="menu" data-value="roster/open">Roster </a></li>
-                             </ul>
-                         </li>
+                         <li> <a class="menu" data-value="kalender/open"><i class="fa fa-th-large"></i><span class="hide-menu">Calendar</span></a></li>
+                         
                          <li> <a class="menu" data-value="boardChat/open"><i class="fa fa-rocket"></i><span class="hide-menu">chat</span></a></li>
                     </ul>
                 </nav>

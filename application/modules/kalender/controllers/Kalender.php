@@ -37,4 +37,9 @@ class kalender extends CI_Controller {
 	{
 		$this->load->view('kalender');
 	}
+
+	public function getDay($value)
+	{
+		return date("l",strtotime($value));
+	}
 }
