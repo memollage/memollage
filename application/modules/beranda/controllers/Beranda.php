@@ -22,6 +22,7 @@ class Beranda extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->_public_view= $this->config->item('public_view');
+		$this->load->model('Model_lib');
 	}
 
 	public function index()
@@ -31,6 +32,39 @@ class Beranda extends CI_Controller {
 	}
 	public function open()
 	{
-		$this->load->view('beranda');
+		$jam=date("H:i:s");
+		$tabel = "kelas";
+		$where=sprintf("WHERE id_kelas in (select id_kelas from jadwal_kelas where email='%s') and hari='%s' and jam_mulai > '%s' ORDER BY jam_mulai",$_SESSION["akun"], date("l"),$jam);
+		$resultROW=$this->Model_lib->SelectWhere($tabel,$where)->num_rows();
+		if($resultROW>0){
+
+			$result=$this->Model_lib->SelectWhere($tabel,$where)->row();
+			$data = array('result' => $result);
+			$this->load->view('beranda',$data);
+		}else {
+			$this->load->view('berandaNull');
+		}
+	}
+	public function getTime()
+	{
+		$jam=date("H:i:s");
+		$tabel = "kelas";
+		$where=sprintf("WHERE id_kelas in (select id_kelas from jadwal_kelas where email='%s') and hari='%s' and jam_mulai > '%s' ORDER BY jam_mulai",$_SESSION["akun"], date("l"),$jam);
+		$result=$this->Model_lib->SelectWhere($tabel,$where)->row();
+		$str_time = $result->jam_mulai;
+
+		$str_time = preg_replace("/^([\d]{1,2})\:([\d]{2})$/", "00:$1:$2", $str_time);
+
+
+		sscanf($str_time, "%d:%d:%d", $hours, $minutes, $seconds);
+		//echo $hours."\n";echo $minutes."\n";echo $seconds."\n";
+		$time_seconds1 = isset($seconds) ? $hours * 3600 + $minutes * 60 + $seconds : $hours * 60 + $minutes;
+
+
+		sscanf($jam, "%d:%d:%d", $hours, $minutes, $seconds);
+		//echo $hours."\n";echo $minutes."\n";echo $seconds."\n";
+		$time_seconds2 = isset($seconds) ? $hours * 3600 + $minutes * 60 + $seconds : $hours * 60 + $minutes;
+		$var=$time_seconds1-$time_seconds2;
+		echo $var;
 	}
 }
