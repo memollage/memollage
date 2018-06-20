@@ -29,12 +29,7 @@
                                     <div class="desc">
                                          <?php echo $resultA->bio ?>
                                     </div>
-                                    <div class="contacts" style="width:100%">
-                                         <div style="text-align:center;width: 100px;height: 50px;margin-left: 424px;">
-                                             <a  style="margin-right: 9px;" href=""><i class="fa fa-plus"></i></a>
-                                             <a  href=""><i class="fa fa-envelope"></i></a>
-                                        </div>
-                                    </div>
+                    
                                 </div>
                             </div>
                         </div>
