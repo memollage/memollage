@@ -135,9 +135,7 @@
                                  <li><a class="menu" data-value="roster/open">Roster </a></li>
                              </ul>
                          </li>
-                         <li> <a class="menu" data-value="about/open"><i class="fa fa-rocket"></i><span class="hide-menu">About</span></a></li>
-
-
+                         <li> <a class="menu" data-value="boardChat/open"><i class="fa fa-rocket"></i><span class="hide-menu">chat</span></a></li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
