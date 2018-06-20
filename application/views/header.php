@@ -130,7 +130,7 @@
                          <li> <a class="menu" data-value="beranda/open"><i class="fa fa-home"></i><span class="hide-menu">Home</span></a></li>
                          <li> <a class="menu" data-value="kelas/open"><i class="fa fa-th-large"></i><span class="hide-menu">Class</span></a></li>
                          <li> <a class="menu" data-value="kalender/open"><i class="fa fa-th-large"></i><span class="hide-menu">Calendar</span></a></li>
-                         
+
                          <li> <a class="menu" data-value="boardChat/open"><i class="fa fa-rocket"></i><span class="hide-menu">chat</span></a></li>
                     </ul>
                 </nav>

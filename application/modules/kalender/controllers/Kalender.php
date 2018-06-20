@@ -31,7 +31,7 @@ class kalender extends CI_Controller {
 	}
 	/*public function index()
 	{
-		$this->load->view('berand	a');
+		$this->load->view('beranda');
 	}*/
 	public function open()
 	{
