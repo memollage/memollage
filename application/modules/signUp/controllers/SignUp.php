@@ -84,11 +84,11 @@ class SignUp extends CI_Controller {
                     }
                     else {
                          $tabel = "dosen";
-          			$where=sprintf("WHERE email='%s' AND password='%s'",$data["email"],$data["password"]);
+          			$where=sprintf("WHERE email='%s'",$data["email"]);
           			$result = $this->Model_lib->Cek($tabel,$where);
                          if($result->num_rows()>0){
                               $tabel = "dosen";
-               			$where=sprintf("WHERE email='%s' AND password='%s' AND aktivasi=1",$data["email"],$data["password"]);
+               			$where=sprintf("WHERE email='%s'AND aktivasi=1",$data["email"]);
                			$result = $this->Model_lib->Cek($tabel,$where);
                                    if($result->num_rows()>0){
                                         $err="email telah terdaftar";
@@ -142,14 +142,13 @@ class SignUp extends CI_Controller {
                     else {
 
                          $tabel = "mahasiswa";
-          			$where=sprintf("WHERE email='%s' AND password='%s'",$data["email"],$data["password"]);
+          			$where=sprintf("WHERE email='%s'",$data["email"]);
                          $result = $this->Model_lib->Cek($tabel,$where);
 
-          			$result = $this->Model_lib->Cek($tabel,$where);
 
                          if($result->num_rows()>0){
                               $tabel = "mahasiswa";
-               			$where=sprintf("WHERE email='%s' AND password='%s' AND aktivasi=1",$data["email"],$data["password"]);
+               			$where=sprintf("WHERE email='%s' AND aktivasi=1",$data["email"],$data["password"]);
                			$result = $this->Model_lib->Cek($tabel,$where);
                                    if($result->num_rows()>0){
                                         $err="email telah terdaftar";
