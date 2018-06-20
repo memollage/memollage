@@ -57,7 +57,7 @@
     </p>
   </div>
 </div>
-
+<script src="<?php echo base_url();?>asset/theme/js/kalender/availability-calendar.js"></script>
 <script src="<?php echo base_url();?>asset/theme/js/kalender/main.js"></script>
 
 <script type="text/javascript">
