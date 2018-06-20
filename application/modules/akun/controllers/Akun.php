@@ -116,6 +116,16 @@ class Akun extends CI_Controller {
 		}
 		return substr($value,$i+1);
 	}
+     public function trimLeftEmail($value)
+	{
+		$i=0;
+		for (; $i<strlen($value); $i++) {
+			if($value[$i]=='@'){
+				break;
+			}
+		}
+		return substr($value,0,$i);
+	}
 
      public function updateProfile()
      {

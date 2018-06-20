@@ -37,9 +37,9 @@ $('#submit').submit(function(e){
           cache:false,
           async:false,
           success: function(data){
-               if(data!="s"){
+
                     alert(data);
-               }
+
           },
           error: function(data){
                alert(data);
