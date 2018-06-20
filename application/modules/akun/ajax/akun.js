@@ -11,10 +11,10 @@ $(document).ready(function(){
                url: BASE_URL+'akun/updateProfile',
                data: $('#profileUser').serialize(),
                success: function(data){
-
+                    alert(data);
                 },
                 error: function(data){
-                     alert("save-err");
+                     alert(data);
                 }
             });
      });
@@ -40,6 +40,9 @@ $('#submit').submit(function(e){
                if(data!="s"){
                     alert(data);
                }
+          },
+          error: function(data){
+               alert(data);
           }
      });
 });
