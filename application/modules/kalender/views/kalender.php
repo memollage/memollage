@@ -1,11 +1,9 @@
-<link href="<?php echo base_url();?>asset/theme/css/jadwal.css" rel="stylesheet">
-
 <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
   <!--
   CSS
   ============================================= -->
   <link rel="stylesheet" href="<?php echo base_url();?>asset/theme/css/jadwal/linearicons.css">=
-  <link rel="stylesheet" href="<?php echo base_url();?>asset/theme/css/jadwal/font-awesome.min.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>asset/theme/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
   <link href="<?php echo base_url();?>asset/theme/css/jadwal/availability-calendar.css" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo base_url();?>asset/theme/css/jadwal/magnific-popup.css">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -17,10 +15,7 @@
   <div class="container">
     <div class="row d-flex justify-content-center">
       <div class="col-md-8 pb-80 header-text">
-        <h1>Event Calendar</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> labore  et dolore magna aliqua.
-        </p>
+        <h1>Calendar</h1>
       </div>
     </div>
     <div class="row">
@@ -71,7 +66,7 @@
 
 <script src="<?php echo base_url();?>asset/theme/vendor/jquery/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="<?php echo base_url();?>asset/theme/vendor/bootstrap/bootstrap.min.js"></script>
+<script src="<?php echo base_url();?>asset/theme/vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url();?>asset/theme/js/jadwal/jquery.ajaxchimp.min.js"></script>
 <script src="<?php echo base_url();?>asset/theme/js/jadwal/availability-calendar.js"></script>
 <script src="<?php echo base_url();?>asset/theme/js/jadwal/jquery.sticky.js"></script>

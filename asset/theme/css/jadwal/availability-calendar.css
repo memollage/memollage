@@ -5,7 +5,7 @@
 	padding-bottom: 15px;
 	font-size: 1.4em;
 	margin-bottom:30px;
-	color:#fff;
+	color:#545252;
 }
 
 .availability-calendar-toolbar span:last-child {float: right}
@@ -13,7 +13,7 @@
 .availability-calendar-toolbar input {
 	padding: 7px 14px;
 	background: #F5F5F5;
-	background-image: linear-gradient(to bottom, #FFF, #E6E6E6);
+	background-image: linear-gradient(to bottom, #545252, #E6E6E6);
 	border: 1px solid #BBB;
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
 	font-weight: bold;
@@ -56,7 +56,7 @@
 
 .availability-calendar th, .availability-calendar td {
 	border: 1px solid #3c3c3d;
-	color:#fff;
+	color:#545252;
 	padding: 5px;
 }
 
