@@ -10,14 +10,14 @@
 <!-- Page Content -->
 
      <div class="container-in-flex">
-          <div class="col-lg-8">
+          <div class="col-lg-12">
                <div class="card">
                      <div class="card-body">
                          <div class="card-content">
                           <div class="card" style="margin:0;text-align:center">
                                <h4> <strong>CLASS STARTS SOON</strong></h4>
                           </div>
-                           <div class="clock" style="margin:2em;"></div>
+                           <div class="clock" style="margin:2em;left: 20%;"></div>
 	                          <div class="message" >
                                     <div class="card col-lg-4" style="text-align:center;margin-left:auto;margin-right:auto;">
                                          <h6><?php echo "Course : ".$result->nama_matakuliah ?></h6><br/>
@@ -29,7 +29,7 @@
                      </div>
                </div>
           </div>
-          <div class="col-lg-4">
+          <!--<div class="col-lg-4">
                <div class="card">
                     <div class="card-body">
                          <h4 class="card-title">Todo -> ini akan todo</h4>
@@ -71,7 +71,7 @@
                          </div>
                     </div>
                </div>
-          </div>
+          </div>-->
      </div>
 
      <script type="text/javascript">

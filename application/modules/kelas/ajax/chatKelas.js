@@ -2,11 +2,11 @@
 
 //});
 var countScroll=0;
-var INIT_CHAT_KELAS;
+var INIT_CHAT_KELAS=0;
 function sendChatKelas(){
      var y = document.getElementById("kelasOpen").value;
      var scroll=document.getElementById('chatKelas-scroll');
-
+     
      $.ajax({
           type: "POST",
           data: $('#formChatKelas').serialize(),
@@ -36,6 +36,7 @@ function getChat(y){
 
 function loadPesan(){
      if(FLAG_INIT_CHAT==0){
+          FLAG_INIT_CHAT=0;
           var y = document.getElementById("kelasOpen").value;
           getChat(y);
      }
