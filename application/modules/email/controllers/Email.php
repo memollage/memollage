@@ -38,8 +38,8 @@ class Email extends CI_Controller {
          'protocol'  => 'smtp',
          'smtp_host' => 'ssl://smtp.googlemail.com',
          'smtp_port' => 465,
-         'smtp_user' => 'muammar.clasic@gmail.com',
-         'smtp_pass' => 'sudo-apt-get-update',
+         'smtp_user' => '',
+         'smtp_pass' => '',
          'mailtype'  => 'html',
          'charset'   => 'utf-8'
      );
